@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Website for my school presentations",
   "scripts": {
-    "dev": "mdx-deck ./presentations/void.mdx",
-    "build": "mdx-deck build presentations/void.mdx",
+    "dev": "mdx-deck ./presentations/works.mdx",
+    "build": "mdx-deck build presentations/works.mdx",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
