@@ -19,3 +19,10 @@ p {
 .no-bullets {
   list-style-type: none;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,6 +2,12 @@ import React from 'react'
 import './styles/Title.css'
 import 'animate.css'
 
-export default ({ children }) => (
-  <h1 className="title animate__animated animate__fadeInDown">{children}</h1>
+export default ({ animation, children }) => (
+  <h1
+    className={`title animate__animated ${
+      animation ? animation : 'animate__fadeInDown'
+    }`}
+  >
+    {children}
+  </h1>
 )

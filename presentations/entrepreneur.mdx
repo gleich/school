@@ -1,0 +1,37 @@
+import { Row, Column } from './components/Align'
+import Title from './components/Title'
+import Copyright from './components/Copyright'
+import './main.css'
+import './entrepreneur.css'
+
+<Head>
+  <title>Guillermo</title>
+  <link rel="icon" href="https://mattglei.ch/icons/favicon.ico" />
+</Head>
+
+<main>
+  <Row>
+    <Column position="left" animation=" ">
+      <Title animation="animate__fadeInUp animate__delay-1s">
+        Guillermo Rauch
+      </Title>
+      <h2
+        className="animate__animated animate__fadeInUp animate__delay-2s"
+        style={{ margin: 0 }}
+      >
+        CEO of Vercel
+      </h2>
+      <h3 className="animate__animated animate__fadeInUp animate__delay-3s">
+        By Matt Gleich
+      </h3>
+    </Column>
+    <Column position="right" animation="animate__fadeIn animate__delay-1s">
+      <img
+        className="guillermo"
+        src="https://pbs.twimg.com/profile_images/1029230542716264448/LgLb--Of.jpg"
+        alt="Image of Guillermo"
+      />
+    </Column>
+  </Row>
+  <Copyright delay="3" />
+</main>
