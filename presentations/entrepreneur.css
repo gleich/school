@@ -3,4 +3,19 @@
   height: auto !important;
   padding-left: 60px;
   border-radius: 50%;
+  animation: change-border 10s infinite 4s;
+}
+
+@keyframes change-border {
+  0% {
+    border-radius: 30%;
+  }
+
+  50% {
+    border-radius: 50%;
+  }
+
+  100% {
+    border-radius: 30%;
+  }
 }
