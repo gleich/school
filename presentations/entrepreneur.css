@@ -2,7 +2,7 @@
   width: 500px !important;
   height: auto !important;
   padding-left: 60px;
-  border-radius: 50%;
+  border-radius: 30%;
   animation: change-border 10s infinite 4s;
 }
 

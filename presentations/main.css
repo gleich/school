@@ -26,3 +26,30 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+h1 {
+  font-size: 8rem;
+  animation: zoomInUp 1s, invert-text 4s 1.3s forwards;
+  animation-duration: 1s;
+}
+
+ul {
+  animation: fadeIn 1s;
+  animation-duration: 1s;
+}
+
+li {
+  font-size: 3rem;
+}
+
+@keyframes invert-text {
+  from {
+    color: white;
+    background-color: black;
+  }
+
+  to {
+    color: black;
+    background-color: white;
+  }
+}
