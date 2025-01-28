@@ -11,6 +11,7 @@ type Answers struct {
 	DocumentName string
 	Class        conf.Class
 	TemplatePath string
+	Destination  string
 }
 
 func Ask(classes []conf.Class) (Answers, error) {
@@ -21,14 +22,13 @@ func Ask(classes []conf.Class) (Answers, error) {
 			huh.NewSelect[conf.Class]().Title("Class").OptionsFunc(func() []huh.Option[conf.Class] {
 				opts := []huh.Option[conf.Class]{}
 				for _, class := range classes {
-					opt := *class.Name
-					if class.Code != "" {
-						opt = fmt.Sprintf("%s [%s]", class.Code, opt)
-					}
-					opts = append(opts, huh.NewOption(opt, class))
+					opts = append(
+						opts,
+						huh.NewOption(fmt.Sprintf("%s [%s]", *class.Code, *class.Name), class),
+					)
 				}
 				return opts
-			}, &answers.Class),
+			}, &answers.Class).WithHeight(len(classes)+2),
 			huh.NewFilePicker().
 				Title("LaTeX Template").
 				CurrentDirectory("./templates/").
@@ -37,7 +37,14 @@ func Ask(classes []conf.Class) (Answers, error) {
 				DirAllowed(false).
 				FileAllowed(true).Value(&answers.TemplatePath).
 				Picking(true),
-		).WithHeight(len(classes) + 2),
+			huh.NewFilePicker().
+				Title("Destination Folder").
+				CurrentDirectory(answers.Class.Folder).
+				DirAllowed(true).
+				FileAllowed(false).
+				Picking(true).
+				Value(&answers.Destination),
+		),
 	).WithTheme(huh.ThemeBase())
 
 	err := form.Run()

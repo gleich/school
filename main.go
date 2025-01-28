@@ -12,9 +12,17 @@ import (
 )
 
 func main() {
+	timber.SetTimezone(time.Local)
+	timber.SetTimeFormat("15:04:05")
+
 	config, err := conf.Read()
 	if err != nil {
 		timber.Fatal(err, "failed to read config")
+	}
+
+	err = conf.CreateClassFolders(*config.Classes)
+	if err != nil {
+		timber.Fatal(err, "failed to create class folders")
 	}
 
 	answers, err := prompt.Ask(*config.Classes)
