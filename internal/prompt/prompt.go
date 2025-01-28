@@ -21,7 +21,11 @@ func Ask(classes []conf.Class) (Answers, error) {
 			huh.NewSelect[conf.Class]().Title("Class").OptionsFunc(func() []huh.Option[conf.Class] {
 				opts := []huh.Option[conf.Class]{}
 				for _, class := range classes {
-					opts = append(opts, huh.NewOption(*class.Code, class))
+					opt := *class.Name
+					if class.Code != "" {
+						opt = fmt.Sprintf("%s [%s]", class.Code, opt)
+					}
+					opts = append(opts, huh.NewOption(opt, class))
 				}
 				return opts
 			}, &answers.Class),

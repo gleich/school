@@ -16,7 +16,7 @@ type Config struct {
 type Class struct {
 	Name    *string
 	Teacher *string
-	Code    *string
+	Code    string // optional
 }
 
 func Read() (Config, error) {
