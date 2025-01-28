@@ -2,11 +2,11 @@ package conf
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
 
 	"github.com/BurntSushi/toml"
 )
+
+const filename = "config.toml"
 
 type Config struct {
 	Author  *string
@@ -16,21 +16,14 @@ type Config struct {
 type Class struct {
 	Name    *string
 	Teacher *string
-	Code    string // optional
+	Code    *string
 }
 
 func Read() (Config, error) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return Config{}, fmt.Errorf("%v failed to get user's home directory", err)
-	}
-
-	path := filepath.Join(home, ".config", "school", "config.toml")
-
 	var config Config
-	_, err = toml.DecodeFile(path, &config)
+	_, err := toml.DecodeFile(filename, &config)
 	if err != nil {
-		return Config{}, fmt.Errorf("%v failed to read config from %s", err, path)
+		return Config{}, fmt.Errorf("%v failed to read config from %s", err, filename)
 	}
 	return config, nil
 }
