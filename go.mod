@@ -2,7 +2,10 @@ module pkg.mattglei.ch/school
 
 go 1.23.5
 
-require pkg.mattglei.ch/timber v1.0.0
+require (
+	github.com/BurntSushi/toml v1.4.0
+	pkg.mattglei.ch/timber v1.0.0
+)
 
 require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
