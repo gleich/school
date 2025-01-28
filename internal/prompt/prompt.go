@@ -32,6 +32,8 @@ func Ask(classes []conf.Class) (Answers, error) {
 			huh.NewFilePicker().
 				Title("LaTeX Template").
 				CurrentDirectory("./templates/").
+				ShowPermissions(false).
+				ShowSize(true).
 				DirAllowed(false).
 				FileAllowed(true).Value(&answers.TemplatePath).
 				Picking(true),
